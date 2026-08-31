@@ -15,8 +15,9 @@ const print = (v: unknown): void => {
 };
 
 function main(): void {
-  //   const n = num();
-  //   print(n);
+  const a = num();
+  const b = num();
+  print((a * b) % 2 ? "Odd" : "Even");
 }
 
 main();

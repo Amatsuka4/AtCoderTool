@@ -15,8 +15,8 @@ const print = (v: unknown): void => {
 };
 
 function main(): void {
-  //   const n = num();
-  //   print(n);
+  const n = num();
+  print(n);
 }
 
 main();
