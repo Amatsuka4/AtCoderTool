@@ -1,0 +1,17 @@
+{
+  "name": "atcoder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "login": "python scripts/login.py",
+    "new": "node scripts/new.mjs",
+    "t": "node scripts/test.mjs",
+    "submit": "node scripts/submit.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "typescript": "^7.0.2"
+  }
+}
