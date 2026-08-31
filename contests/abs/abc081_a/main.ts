@@ -15,8 +15,20 @@ const print = (v: unknown): void => {
 };
 
 function main(): void {
-  const n = num();
-  print(n);
+  const s = str();
+
+  const count = (s: string, c: string): number => {
+    let n = 0;
+    const code = c.charCodeAt(0);
+    for (let i = 0; i < s.length; i++) {
+      if (s.charCodeAt(i) === code) {
+        n++;
+      }
+    }
+    return n;
+  };
+
+  print(count(s, "1"));
 }
 
 main();

@@ -15,8 +15,26 @@ const print = (v: unknown): void => {
 };
 
 function main(): void {
-  const n = num();
-  print(n);
+  const A = num();
+  const B = num();
+  const C = num();
+  const X = num();
+
+  let count: number = 0;
+
+  for (let c = 0; c < C + 1; c++) {
+    for (let b = 0; b < B + 1; b++) {
+      for (let a = 0; a < A + 1; a++) {
+        const total = a * 500 + b * 100 + c * 50;
+        if (total === X) {
+          count++;
+          break;
+        }
+      }
+    }
+  }
+
+  print(count);
 }
 
 main();

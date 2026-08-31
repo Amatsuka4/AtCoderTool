@@ -16,7 +16,25 @@ const print = (v: unknown): void => {
 
 function main(): void {
   const n = num();
-  print(n);
+  const s = nums(n);
+
+  const divided = (numbers: number[]): number[] => {
+    return numbers.map((num: number): number => {
+      return num / 2;
+    });
+  };
+
+  let count = 0;
+  let numbers = s;
+  while (true) {
+    if (numbers.some((v) => v % 2 !== 0)) {
+      print(count);
+      return;
+    } else {
+      count += 1;
+      numbers = divided(numbers);
+    }
+  }
 }
 
 main();
