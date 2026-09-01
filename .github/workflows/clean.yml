@@ -1,0 +1,36 @@
+name: clean
+
+# 取ってきただけで解いていない問題ディレクトリを消してコミットする
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  clean:
+    # 自分のコミットで再度走らないようにする
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: node scripts/clean.mjs
+
+      - name: 変更があればコミット
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "消すものはありませんでした"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'chore: 未着手の問題ディレクトリを削除'
+          git push
