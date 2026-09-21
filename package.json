@@ -9,6 +9,7 @@
     "t": "node scripts/test.mjs",
     "submit": "node scripts/submit.mjs",
     "clean": "node scripts/clean.mjs",
+    "test:clean": "node --test scripts/clean.test.mjs",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
